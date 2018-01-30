@@ -1,0 +1,11 @@
+#!/bin/sh
+ 
+touch /opt/phion/run/noroutecheck
+/opt/phion/modules/box/boxnet/bin/activate /opt/phion/preserve/boxnet.conf
+cp /opt/phion/preserve/boxnet.conf /opt/phion/config/active/boxnet.conf.tmp
+\cp /opt/phion/config/active/boxnet.conf.tmp /opt/phion/config/active/boxnet.conf
+\rm /opt/phion/run/noroutecheck
+/opt/phion/bin/boxkey
+/opt/phion/bin/acpfrule i
+touch /opt/phion/run/server.ctrl
+\rm /opt/phion/preserve/boxnet.conf
